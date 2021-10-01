@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/restaurant.css}">
+<title>予約削除確認</title>
+</head>
+<body>
+    <div class="title">
+        <label>予約削除確認</label>
+    </div>
+    
+    <div class="message">
+        <p>下記予約を削除いたしますが、よろしいでしょうか？</p>
+    </div>
+
+
+    <div class="delete-text">
+        <div class="comment">
+            <label class="delete-id">予約ID</label>
+            <label>[[${entity.id}]]</label>
+        </div>
+
+        <div class="comment">
+            <label class="delete-name">お名前</label>
+            <label>[[${entity.lastName}]]</label>
+            <label>[[${entity.firstName}]]</label>
+        </div>
+
+        <div class="comment">
+            <label class="delete-date">予約日時</label>
+            <label class="delete-time">[[${year}]]</label>
+            <label>[[${time}]]</label>
+        </div>
+
+        <div class="comment">
+            <label class="delete-count">予約人数</label>
+            <label>[[${entity.reservationCount}]]人</label>
+        </div>
+
+        <div class="comment">
+            <label class="delete-tel">電話番号</label>
+            <label>[[${entity.tell}]]</label>
+        </div>
+
+        <div class="comment">
+            <label class="delete-check">お祝い</label>
+            <label>[[${celebration}]]</label>
+        </div>
+
+        <div class="comment">
+            <label class="delete-comment">お店への要望</label>
+            <label>[[${demand}]]</label>
+        </div>
+    </div>
+
+
+    <form>
+        <div class="button2">
+            <button formmethod="GET" type="submit" name="reservationId" th:value="${entity.id}" formaction="/manage/reservationDetail" form="back" class="back-button">
+                	戻る
+            </button>
+            <input type="hidden" name="reservationId" th:value="${entity.id}">
+            <input type="submit" formaction="/manage/dodelete" value="削除" class="delete-button">
+        </div>
+    </form>
+	<form id="back"></form>
+</body>
+</html>

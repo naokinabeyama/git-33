@@ -1,0 +1,48 @@
+// <!-- <mdb:mork:z v="1.4"/> -->
+< <(a=c)> // (f=iso-8859-1)
+  (B8=gloda-id)(B9=gloda-dirty)(BA=junkscore)(BB=keywords)(BC=retainBy)
+  (BD=daysToKeepHdrs)(BE=numHdrsToKeep)(BF=daysToKeepBodies)
+  (C0=useServerDefaults)(C1=cleanupBodies)(C2=applyToFlaggedMessages)
+  (C3=useServerRetention)(C4=origURIs)(C5=queuedDisposition)(C6=sortType)
+  (C7=sortOrder)(C8=viewFlags)(C9=viewType)(CA=columnStates)(CB=MRUTime)
+  (CC=sortColumns)(CD=customSortCol)(CE=imageSize)(CF=recipient_names)
+  (80=ns:msg:db:row:scope:msgs:all)(81=subject)(82=sender)(83=message-id)
+  (84=references)(85=recipients)(86=date)(87=size)(88=flags)(89=priority)
+  (8A=label)(8B=statusOfset)(8C=numLines)(8D=ccList)(8E=bccList)
+  (8F=msgThreadId)(90=threadId)(91=threadFlags)(92=threadNewestMsgDate)
+  (93=children)(94=unreadChildren)(95=threadSubject)(96=msgCharSet)
+  (97=ns:msg:db:table:kind:msgs)(98=ns:msg:db:table:kind:thread)
+  (99=ns:msg:db:table:kind:allthreads)
+  (9A=ns:msg:db:row:scope:threads:all)(9B=threadParent)(9C=threadRoot)
+  (9D=msgOffset)(9E=offlineMsgSize)
+  (9F=ns:msg:db:row:scope:dbfolderinfo:all)
+  (A0=ns:msg:db:table:kind:dbfolderinfo)(A1=numMsgs)(A2=numNewMsgs)
+  (A3=folderSize)(A4=expungedBytes)(A5=folderDate)(A6=highWaterKey)
+  (A7=mailboxName)(A8=UIDValidity)(A9=totPendingMsgs)
+  (AA=unreadPendingMsgs)(AB=expiredMark)(AC=version)(AD=forceReparse)
+  (AE=fixedBadRefThreading)(AF=folderName)(B0=charSetOverride)
+  (B1=charSet)(B2=storeToken)(B3=account)(B4=dateReceived)
+  (B5=ProtoThreadFlags)(B6=pseudoHdr)(B7=X-Identity-Key)>
+<(7F9=99)(81=0)>[98:m(^9C=99)(^90=99)(^92=0)(^91=0)(^93=0)(^94=0)]
+<(7EE=98)>[97:m(^9C=98)(^90=98)(^92=0)(^91=0)(^93=0)(^94=0)]
+[98:^80]
+[99:^80]
+<(7E9==?UTF-8?B?4peG5pel5aCxXzIwMjEwOTAyN1/pjYvlsbHlsJrluIw=?=)>
+[98:^9A(^95^7E9)]
+<(7F5==?UTF-8?B?4peG5pel5aCxXzIwMjEwOTAyOV/pjYvlsbHlsJrluIw=?=)>
+[99:^9A(^95^7F5)]
+
+<(80=1)(82=404)(83=Drafts)(7FA=5c163)(7FC=6154323a)(85=$E4$B8$8B$E6$9B$B8$E3$81\
+$8D)(7FE=5c031)(6B6=1631080504)(C6=12)(C7=)(C8
+    ={"threadCol":{"visible":true},"attachmentCol":{"visible":true},"flaggedCo\
+l":{"visible":true},"subjectCol":{"visible":true},"unreadButtonColHeader":{"vi\
+sible":true},"senderCol":{"visible":false},"recipientCol":{"visible":false},"c\
+orrespondentCol":{"visible":true},"junkStatusCol":{"visible":true},"dateCol":{\
+"visible":true},"locationCol":{"visible":false}})>
+{1:^9F {(k^A0:c)(s=9)} 
+  [1(^AC=1)(^AD=0)(^AE=1)(^88^82)(^A7^83)(^A3^7FA)(^A5^7FC)(^AF^85)
+    (^A1=0)(^A2=0)(^A6=99)(^C3=1)(^A4^7FE)(^CB^6B6)(^C6=12)(^C7=1)(^C8=0)
+    (^C9=0)(^CC=)(^CA^C8)]}
+
+@$${2C{@
+@$$}2C}@

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/restaurant.css}">
+<title>予約更新</title>
+</head>
+<body>
+	<div class="title">
+        <label>予約更新</label>
+    </div>
+    <div class="message-area">
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('lastName')}" th:errors = "*{lastName}"></p>
+    	</div>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('firstName')}" th:errors = "*{firstName}"></p>
+    	</div>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('tell')}" th:errors = "*{tell}"></p>
+    	</div>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if="${#fields.hasErrors('validDemand')}" th:errors = "*{validDemand}"></p>
+    	</div>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('demand')}" th:errors = "*{demand}"></p>
+    	</div>
+	</div>
+    <div class="update-form">
+        <form method="POST">
+            <p>
+                <label class="form-id"> 予約ID </label>
+                    [[${entity.id}]]
+            </p>
+
+            <p>
+                <label class="form-name">
+                    お名前
+                </label>
+                <input type="text" name="lastName" th:value="${entity.lastName}" class="first-name">
+                <input type="text" name="firstName" th:value="${entity.firstName}" class="last-name">
+            </p>
+
+            <p>
+                <label class="form-date">
+                    予約日時
+                </label>
+                <select name="reservationDate" class="first-date">
+                    <option>[[${year}]]</option>
+                    <option th:each="date : ${timeList}">[[${date}]]</option>
+                </select>
+                <select name="reservationTime" class="last-date">
+                	<option>[[${totalTime}]]</option>
+                    <option>11:00 ~ 13:00</option>
+                    <option>13:00 ~ 15:00</option>
+                    <option>15:00 ~ 17:00</option>
+                    <option>17:00 ~ 19:00</option>
+                    <option>19:00 ~ 21:00</option>
+                    <option>21:00 ~ 23:00</option>
+                </select>
+            </p>
+
+            <p>
+                <label class="form-count">
+                    予約人数
+                </label>
+                <select name="reservationCount">
+                	<option>[[${entity.reservationCount}]]
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+            </p>
+
+            <p>
+                <label class="form-tel">
+                    電話番号
+                </label>
+                <input type="text" name ="tell" th:value="${entity.tell}">
+            </p>
+
+            <p>
+                <label class="form-check">
+                    お祝い
+                </label>
+                <input type="checkbox" name="celebrationExistence" th:checked="${entity.celebrationExistence}">
+            </p>
+
+                <label class="form-text"> お店への要望</label>
+                <div class="textarea">
+                    <textarea name="demand">[[${entity.demand}]]</textarea>
+                </div>
+
+            <div class="button">
+            	<button formmethod="GET" type="submit" name="reservationId" th:value="${entity.id}" formaction="/manage/reservationDetail" form="back" class="back-button">
+                	戻る
+                </button>
+                <input type="hidden" name="reservationId" th:value="${entity.id}">
+                <input type="submit" formaction="/manage/doUpdate" value="更新" class="update-button">
+            </div>
+        </form>
+        <form id="back"></form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/restaurant.css}">
+<title>予約詳細</title>
+</head>
+<body>
+	<div class="title">
+        <label>予約詳細</label>
+    </div>
+
+    <div class="delete-text">
+        <div class="comment">
+            <label class="delete-id">予約ID</label>
+            <label>[[${entity.id}]]</label>
+        </div>
+
+        <div class="comment">
+            <label class="delete-name">お名前</label>
+            <label>[[${entity.lastName}]]</label>
+            <label>[[${entity.firstName}]]</label>
+        </div>
+
+        <div class="comment">
+            <label class="delete-date">予約日時</label>
+            <label class="delete-time">[[${year}]]</label>
+            <label>[[${time}]]</label>
+        </div>
+
+        <div class="comment">
+            <label class="delete-count">予約人数</label>
+            <label>[[${entity.reservationCount}]]人</label>
+        </div>
+
+        <div class="comment">
+            <label class="delete-tel">電話番号</label>
+            <label>[[${entity.tell}]]</label>
+        </div>
+
+        <div class="comment">
+            <label class="delete-check">お祝い</label>
+            <label>[[${celebration}]]</label>
+        </div>
+
+        <div class="comment">
+            <label class="delete-comment">お店への要望</label>
+            <label>[[${demand}]]</label>
+        </div>
+    </div>
+
+
+    <form method="GET">
+        <div class="button2">
+        	<input type="hidden" name="reservationId" th:value="${entity.id}">
+            <input type="submit" formaction="/manage/reservationDeleteConfirm" value="削除" class="show-delete-button">
+            
+            <input type="submit" formaction="/manage/reservationList" form="back" value="戻る" class="back-button">
+            
+            <th:block th:if="${bool} == true">
+            	<input type="hidden" name="reservationId" th:value="${entity.id}">
+            	<input type="submit" formaction="/manage/reservationUpdate" value="更新" class="update-button">
+            </th:block>
+            <th:block th:if="${bool} == false">
+            	<input type="submit" value="更新" disabled class="update-button">
+            </th:block>
+        </div>
+    </form>
+    <form id="back"></form>
+</body>
+</html>

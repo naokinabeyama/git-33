@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/restaurant.css}">
+<title>予約登録</title>
+</head>
+<body>
+	<div class="title">
+        <label>予約登録</label>
+    </div>
+
+    <div class="message-area">
+    	<p th:text="${message}"></p>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('lastName')}" th:errors = "*{lastName}"></p>
+    	</div>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('firstName')}" th:errors = "*{firstName}"></p>
+    	</div>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('visitsTime')}" th:errors = "*{visitsTime}"></p>
+    	</div>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('visitsNumber')}" th:errors = "*{visitsNumber}"></p>
+    	</div>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('tell')}" th:errors = "*{tell}"></p>
+    	</div>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if="${#fields.hasErrors('validDemand')}" th:errors = "*{validDemand}"></p>
+    	</div>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('demand')}" th:errors = "*{demand}"></p>
+    	</div>
+
+    </div>
+
+    <div class="registration-form">
+        <p>■ご予約内容を入力してください。</p>
+        
+        <form method="POST">
+            <p>
+                <label class="form-name">
+                    お名前
+                </label>
+                <input type="text" name="lastName" th:value="${form.lastName}" class="first-name">
+                <input type="text" name="firstName" th:value="${form.firstName}" class="last-name">
+            </p>
+
+            <p>
+                <label class="form-date">
+                    来店日時
+                </label>
+                <select name="visitsDate" class="first-date">
+                	<option th:if="${form.visitsDate}">[[${form.visitsDate}]]</option>
+                    <option th:each="date:${timeList}">[[${date}]]</option>
+                </select>
+                <select name="visitsTime" class="last-date">
+                	<option th:if="${form.visitsTime}">[[${form.visitsTime}]]</option>
+                	<option>未選択</option>
+                    <option>11:00 ~ 13:00</option>
+                    <option>13:00 ~ 15:00</option>
+                    <option>15:00 ~ 17:00</option>
+                    <option>17:00 ~ 19:00</option>
+                    <option>19:00 ~ 21:00</option>
+                    <option>21:00 ~ 23:00</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="visitsNumber" class="form-count">
+                    来店人数
+                </label>
+                <select name="visitsNumber">
+                	<option th:if="${form.visitsNumber}">[[${form.visitsNumber}]]</option>
+                	<option>未選択</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+            </p>
+
+            <p>
+                <label for="tell" class="form-tel">
+                    電話番号
+                </label>
+                <input type="text" name="tell" th:value="${form.tell}">
+            </p>
+
+            <p>
+                <label for="celebrationExistence" class="form-check">
+                    お祝い
+                </label>
+                <input type="checkbox" name="celebrationExistence" th:checked="${form.celebrationExistence}">
+                <!--/* <input type="checkbox" th:field="${form.celebrationExistence}">の場合
+                	th:fieldの中身
+                	<input type="checkbox" id="celebrationExistence" name="celebrationExistence" value="true">
+                	↑checkboxにチェックがついてたら[checked="cheked"]が追加される
+                	<input type="hidden" name="_celebrationExistence" value="on">
+                */-->
+            </p>
+
+            <p>
+                <label for="demand" class="form-text"> お店への要望</label>
+                <textarea name="demand">[[${form.demand}]]</textarea>
+            </p>
+            <div class="registration-button">
+                <input formmethod="GET" type="submit" formaction="/store/top" form="back" value="戻る" class="back-button">
+                <input type="submit" formaction="/store/doReservation" value="予約する" class="create-button">
+            </div>
+        </form>
+        <form id="back"></form>
+    </div>
+
+</body>
+</html>

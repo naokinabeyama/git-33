@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/restaurant.css}">
+<title>ログイン</title>
+</head>
+<body>
+	<div class="title">
+        <label>ログイン</label>
+    </div>
+
+    <div class="login-message-area">
+        <div th:if="${param.error}">
+			メールアドレスかパスワードが違うためログインに失敗しました。
+		</div>
+		<div th:if="${param.logout}">
+			ログアウトしました。
+		</div>
+    </div>
+    
+    <div>
+    	<p th:text="${logout}"></p>
+    </div>
+
+    <form method="POST" class="login-form">
+        <p>
+            <label class="mall">
+                メールアドレス
+            </label>
+            <input type="text" name="username" placeholder="必須">
+        </p>
+
+        <p>
+            <label class="password">
+                パスワード
+            </label>
+            <input type="text" name="password" placeholder="必須">
+        </p>
+
+        <div class="login">
+            <input type="submit" formaction="/manage/login" value="ログイン" class="login-button">
+        </div>
+        
+    </form>
+
+</body>
+</html>

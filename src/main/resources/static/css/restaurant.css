@@ -1,0 +1,362 @@
+@charset "UTF-8";
+
+.top-body {
+    background-color: black;
+    margin: 25px;
+}
+
+img {
+    width: 100%;
+    height: 800px;
+}
+
+.top {
+    position: relative;
+}
+
+.top-name1 {
+    position: absolute;
+    top: 4%;
+    left: 82%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    flex-flow: column; 
+    vertical-align: top;
+    width: 220px;
+    border: 1px solid white;
+    background-color: white;
+}
+
+.top-name2 {
+    color: black;
+    font-family:  "HG行書体";
+    font-size: 50px;
+    /* border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+    background-color: black; */
+}
+
+.top-title {
+    position: absolute;
+    top: 0;
+    left: 5%;
+    color: white;
+    font-family:  "HG行書体";
+    font-size: 140px;
+}
+
+.top-text {
+    position: absolute;
+    top: 60%;
+    left: 34%;
+    color: white;
+    font-family:  "HG行書体";
+    font-size: 70px;
+}
+
+.yoyaku {
+    position: absolute;
+    top: 86%;
+    left: 40%;
+    font-size: 30px;
+    display: inline-block;
+    padding: 10px 30px;
+    text-decoration: none;
+    background: rgb(228,226,223);
+    color: black;
+    font-family:  "HG行書体";
+    border-radius: 5px;
+}
+
+.yoyaku:hover {
+    opacity: 0.9;
+}
+
+.message-area {
+    text-align: center;
+    background-color: #87CEFA;
+    margin-bottom: 30px;
+}
+
+.login-message-area {
+    text-align: center;
+    background-color: #87CEFA;
+    margin-top: 50px;
+    margin-bottom: 60px;
+}
+
+.message {
+    text-align: center;
+}
+
+.title {
+    margin-top: 20px;
+    margin-left: 100px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.registration-form {
+    margin-left: 300px;
+}
+
+.update-form {
+    margin-left: 120px; 
+}
+
+.form-id, .form-name, .form-check {
+    margin-right: 65px;
+}
+
+.form-date, .form-count, .form-tel {
+    margin-right: 50px;
+}
+
+.first-name, .first-date {
+    margin-right: 15px;
+}
+
+.first-date, .last-date {
+    width: 165px;
+}
+
+input[type=checkbox] {
+    width: 20px;
+    height: 20px;
+}
+
+.form-text {
+    margin-right: 20px;
+    float: left;
+}
+
+textarea {
+    resize: none;
+    width: 340px;
+    height: 150px;
+}
+
+.button {
+    margin-left: 600px;
+}
+
+.button2 {
+    margin-left: 700px;
+}
+
+.back-button {
+    margin-right: 20px;
+}
+
+.show-delete-button {
+    margin-right: 20px;
+}
+
+.back-button, .update-button, .create-button, .login-button, .delete-button, .show-delete-button, .search-button {
+    width: 70px;
+}
+
+.registration-button {
+    margin-left: 180px;
+}
+
+.create-button {
+    margin-left: 60px;
+}
+
+.login-form {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.mall {
+    margin-right: 15px;
+}
+
+.password {
+    margin-right: 45px;
+}
+
+.login-button {
+    margin-left: 130px;
+}
+
+.delete-text {
+    margin-left: 125px;
+}
+
+.delete-id, .delete-name, .delete-check{
+    margin-right: 100px;
+}
+
+.delete-date, .delete-count, .delete-tel {
+    margin-right: 85px;
+}
+
+.delete-comment {
+    margin-right: 50px;
+}
+
+.comment {
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+
+.index-form {
+    margin-left: 100px;
+}
+
+.search {
+    font-weight: bold;
+}
+
+.index-text-top {
+    margin-bottom: 20px;
+}
+
+.index-id {
+    margin-right: 40px;
+}
+
+.index-id-text {
+    width: 100px;
+}
+
+.index-count {
+    margin-right: 18px;
+}
+
+.index-count-select {
+    width: 107px;
+    height: 22px;
+}
+
+.index-name {
+    margin-left: 25px;
+    margin-right: 40px;
+}
+
+.index-firstname-text {
+    width: 70px;
+    margin-right: 20px;
+}
+
+.index-lastname-text {
+    width: 70px;
+}
+
+
+.index-tel {
+    margin-left: 25px;
+    margin-right: 25px;
+}
+
+.index-tel-text {
+    width: 170px;
+}
+
+.index-day {
+    margin-left: 25px;
+    margin-right: 50px;
+}
+
+.index-day-text {
+    width: 125px;
+}
+
+.index-date {
+    margin-left: 25px;
+    margin-right: 20px;
+}
+
+.index-date-text {
+    width: 230px;
+}
+
+.search-button {
+    margin-left: 950px;
+}
+
+.border {
+    border: solid 0.5px black;
+    width: 1020px;
+    margin: 30px 0;
+}
+
+.index-index {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0px;
+    /* width: 1020px; */
+    table-layout: fixed;
+
+}
+
+.yoyakuid {
+    width: 110px;
+}
+
+.name {
+    width: 170px;
+}
+
+.day {
+    width: 150px;
+}
+
+.time {
+    width: 170px;
+}
+
+.count {
+    width: 90px;
+}
+
+.yoyakuday {
+    width: 150px;
+}
+
+.tell {
+    width: 160px;
+}
+
+td,th {
+    border: 1px solid #000000;
+    text-align: left;
+    /* border: solid 1px;
+    border-right: 0px; */
+}
+
+th {
+    background-color: #87CEFA;
+    font-weight: normal;
+}
+
+ul {
+    list-style: none;
+    margin-left: 480px;
+    margin-top: 40px;
+}
+
+li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.logout {
+	margin-left: 940px;
+}
+
+.guest {
+	margin-left: 460px;
+}
+

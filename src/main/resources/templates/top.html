@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/restaurant.css}">
+<title>店舗TOP</title>
+</head>
+<body class="top-body">
+	<div class="top">
+        <img src="../img/restaurant-4165038_1280.jpg">
+        <div class="top-name1">
+            <h1 class="top-name2">なべ屋</h1>
+        </div>
+        <p class="top-title">これぞ、<br> 日本の極み</p>
+        <p class="top-text">予約承ります</p>
+        <form>
+        	<input type="submit" formaction="/store/reservation" value="予約はこちら" class="yoyaku">
+        </form>
+    </div>
+</body>
+</html>

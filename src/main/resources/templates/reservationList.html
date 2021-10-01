@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/restaurant.css}">
+<title>予約検索一覧</title>
+</head>
+<body>
+	<div class="title">
+        <label>予約検索一覧</label>
+    </div>
+    
+    <div class="index-form">
+    
+    <div class="guest">
+    	<label>ようこそ「[[${usersEntity.username}]]」さん</label>
+    </div>
+    
+    <form class="logout">
+    	<input type="submit" formaction="/logout" value="ログアウト">
+	</form>
+
+
+        <p class="search">
+            <label>検索</label>
+        </p>
+        
+        <div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('reservationId')}" th:errors = "*{reservationId}"></p>
+    	</div>
+        <div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('lastName')}" th:errors = "*{lastName}"></p>
+    	</div>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('firstName')}" th:errors = "*{firstName}"></p>
+    	</div>
+    	<div th:if = "${form}" th:object = "${form}">
+    		<p th:if = "${#fields.hasErrors('tell')}" th:errors = "*{tell}"></p>
+    	</div>
+
+        <form method="GET">
+            <div class="index-text-top">
+                <label class="index-id">予約ID:</label>
+                <input type="text" name="reservationId" th:value="${form.reservationId}" class="index-id-text">  
+                
+                <label class="index-name">予約者：</label>
+                <input type="text" name="lastName" th:value="${form.lastName}" class="index-firstname-text">
+                <input type="text" name="firstName" th:value="${form.firstName}" class="index-lastname-text">
+                
+                <label class="index-day">予約日：</label>
+                 
+                <input type="date" name="reservationDateFrom" th:value="${form.reservationDateFrom}" class="index-day-text">
+                
+                <!--/*
+                <th:block th:if="${form.reservationDateFrom}==null">
+                	<input type="date" name="reservationDateFrom" th:value="${day}" class="index-day-text">
+                </th:block>
+                <th:block th:if="${form.reservationDateFrom != ' ' || form.reservationDateFrom != null}">
+                	<input type="date" name="reservationDateFrom" th:value="${form.reservationDateFrom}" class="index-day-text">
+                </th:block>
+                <th:block th:unless="${form.reservationDateFrom != ' ' || form.reservationDateFrom != null}">
+                	<input type="date" name="reservationDateFrom" th:value="${day}" class="index-day-text">
+                </th:block>
+                */-->
+                
+                ~
+                <input type="date" name="reservationDateTo" th:value="${form.reservationDateTo}" class="index-day-text">
+            </div>
+
+            <div class="index-text-bottom">
+                <label class="index-count">予約人数：</label>
+                <select class="index-count-select" name="reservationCount">
+                    <option>[[${form.reservationCount}]]</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                </select>
+            
+                <label class="index-tel">電話番号：</label>
+                <input type="text" name="tell" th:value="${form.tell}" class="index-tel-text">
+            
+                <label class="index-date">予約受付日：</label>
+                <input type="date" name="receptionDate" th:value="${form.receptionDate}" class="index-date-text">
+            </div>
+            <button type="submit" formaction="/manage/reservationList" name="serch" th:value="1" class="search-button">
+            	検索
+            </button>
+            
+            <!--/*
+            <input type="submit" formaction="/manage/reservationList" value="検索" class="search-button">
+            */-->
+            
+        </form>
+
+        <div class="border"></div>
+
+        <div class="index-index">
+            <label>一覧</label>
+        </div>
+		<div>
+	        <table>
+	            <tr>
+	                <th class="yoyakuid">
+	                    <label>予約ID</label>
+	                </th>
+	
+	                <th class="name">
+	                    <label>予約者</label>
+	                </th>
+	
+	                <th class="day">
+	                    <label>予約日</label>
+	                </th>
+	
+	                <th class="time">
+	                    <label>予約時間</label>
+	                </th>
+	
+	                <th class="count">
+	                    <label>予約人数</label>
+	                </th>
+	
+	                <th class="yoyakuday">
+	                    <label>予約受付日</label>
+	                </th>
+	
+	                <th class="tell">
+	                    <label>電話番号</label>
+	                </th>
+	            </tr>
+	            
+	            <tr th:if="${entityList}" th:each="entity, time:${entityList}">
+	                <td class="yoyakuid">
+	                	<form method="GET">
+		                	<a th:href="@{/manage/reservationDetail(reservationId=${entity.id})}">[[${entity.id}]]</a>
+	                	</form>
+	                </td>
+	
+	                <td class="name">
+	                    [[${entity.lastName}]]
+	                    [[${entity.firstName}]]
+	                </td>
+	                	
+	                <td class="day">
+	                    [[${#dates.format(entity.reservationDate, 'yyyy/MM/dd')}]]
+	                </td>
+						
+	                <td class="time">
+	                	[[${timeList[time.index]}]]
+	                
+	                <!--/*
+	                    <th:block th:if="${#dates.format(entity.reservationDate, 'HH:mm') == '11:00'}">
+	                    	[[${#dates.format(entity.reservationDate, 'HH:mm')}]] ~ 13:00
+	                    </th:block>
+	                    <th:block th:if="${#dates.format(entity.reservationDate, 'HH:mm') == '13:00'}">
+	                    	[[${#dates.format(entity.reservationDate, 'HH:mm')}]] ~ 15:00
+	                    </th:block>
+	                    <th:block th:if="${#dates.format(entity.reservationDate, 'HH:mm') == '15:00'}">
+	                    	[[${#dates.format(entity.reservationDate, 'HH:mm')}]] ~ 17:00
+	                    </th:block>
+	                    <th:block th:if="${#dates.format(entity.reservationDate, 'HH:mm') == '17:00'}">
+	                    	[[${#dates.format(entity.reservationDate, 'HH:mm')}]] ~ 19:00
+	                    </th:block>
+	                    <th:block th:if="${#dates.format(entity.reservationDate, 'HH:mm') == '19:00'}">
+	                    	[[${#dates.format(entity.reservationDate, 'HH:mm')}]] ~ 21:00
+	                    </th:block>
+	                    <th:block th:if="${#dates.format(entity.reservationDate, 'HH:mm') == '21:00'}">
+	                    	[[${#dates.format(entity.reservationDate, 'HH:mm')}]] ~ 23:00
+	                    </th:block>
+	                */-->
+	                
+	                </td>
+	
+	                <td class="count">
+	                    [[${entity.reservationCount}]]
+	                </td>
+	
+	                <td class="yoyakuday">
+	                    [[${#dates.format(entity.createdAt, 'yyyy/MM/dd')}]]
+	                </td>
+	
+	                <td class="tell">
+	                    [[${entity.tell}]]
+	                </td>
+	            </tr>
+	        </table>
+		</div>
+    </div>
+	
+
+	<ul th:if="${entityList.totalPages}>1" th:method="get" class="page">
+       	<li style="display : inline" th:each="i : ${#numbers.sequence(0, entityList.totalPages-1)}">
+        	<span th:if="${i}==${entityList.number}" th:text="${i + 1}"></span>
+            <a th:if="${i}!=${entityList.number}" th:href="@{${url}(page=${i},reservationId=${form.reservationId},lastName=${form.lastName},
+            	firstName=${form.firstName},tell=${form.tell},reservationCount=${form.reservationCount},reservationDateFrom=${form.reservationDateFrom},
+            	reservationDateTo=${form.reservationDateTo},receptionDate=${form.receptionDate},serch=${serchButton})}" th:text="${i + 1}"></a>  
+       	</li>
+     </ul>
+
+
+</body>
+</html>
